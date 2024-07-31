@@ -11,7 +11,7 @@ head={
 }
 
 # 输入你想下载的视频地址URL
-url="https://www.bilibili.com/video/BV1rz4y1u7kn"
+url="https://www.bilibili.com/video/BV1YC4y1C7mk/?spm_id_from=333.999.0.0&vd_source=db6b0688ca3b440edc3f0fb66273053b"
 
 
 response=requests.get(url,headers=head)
@@ -30,6 +30,8 @@ json_data=json.loads(play_info)
 # 提取媒体资源
 audio_url=json_data['data']['dash']['audio'][0]['baseUrl']
 video_url=json_data['data']['dash']['video'][0]['baseUrl']
+print(audio_url)
+print(video_url)
 audio_content=requests.get(url=audio_url,headers=head).content
 video_content=requests.get(url=video_url,headers=head).content
 # 保存视频
